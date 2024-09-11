@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lanzar dados</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css')}}">
+        <script>
+            function runScript(){
+                fetch('/run', {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').innerText = data;
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <img src="static/img/dados.png">
+        <br>
+        <button onclick="runScript()">Lanzar dado...</button>
+        <br>
+        <h5>Resultado dado</h5><h1 id="output"></h1>
+    </body>
+</html>
